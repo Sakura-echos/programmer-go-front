@@ -7,7 +7,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import MyNav from '@/components/nav/nav.vue'
+import MyNav from '@/components/nav'
 
 export default defineComponent({
   components: {
