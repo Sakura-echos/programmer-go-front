@@ -9,7 +9,7 @@ const routes: RouteRecordRaw[] = [
   },
   {
     path: '/index',
-    component: () => import('@/views/index/index.vue'),
+    component: () => import('@/views/index/Index.vue'),
     children: [
       {
         path: '',
@@ -17,18 +17,18 @@ const routes: RouteRecordRaw[] = [
       },
       {
         path: 'home',
-        component: () => import('@/views/index/home/home.vue')
+        component: () => import('@/views/index/home/Home.vue')
       }
     ]
   },
   {
     path: '/login',
-    component: () => import('@/views/login/login.vue')
+    component: () => import('@/views/login/Login.vue')
   },
   {
     path: '/:pathMatch(.*)*',
     name: 'not-found',
-    component: () => import('@/views/not-found/not-found.vue')
+    component: () => import('@/views/not-found/NotFound.vue')
   }
 ]
 

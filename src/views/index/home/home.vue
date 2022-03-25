@@ -13,8 +13,8 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import HomeLeft from './components/home-left.vue'
-import HomeRight from './components/home-right.vue'
+import HomeLeft from './components/HomeLeft.vue'
+import HomeRight from './components/HomeRight.vue'
 
 export default defineComponent({
   components: {
