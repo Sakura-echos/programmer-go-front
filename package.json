@@ -1,5 +1,5 @@
 {
-  "name": "programmer-go",
+  "name": "programmer-go-front",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -11,9 +11,10 @@
     "prettier": "prettier --write ."
   },
   "dependencies": {
-    "ant-design-vue": "^2.2.8",
+    "@element-plus/icons-vue": "^1.1.4",
     "axios": "^0.26.1",
     "core-js": "^3.6.5",
+    "element-plus": "^2.1.4",
     "vue": "^3.0.0",
     "vue-router": "^4.0.13",
     "vuex": "^4.0.0-0"
