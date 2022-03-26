@@ -21,7 +21,7 @@
         placeholder="Please Input"
         :prefix-icon="Search"
       />
-      <el-menu-item index="">个人中心</el-menu-item>
+      <el-menu-item index="4">个人中心</el-menu-item>
     </el-menu>
   </div>
 </template>
