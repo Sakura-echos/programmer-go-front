@@ -21,7 +21,7 @@
         placeholder="Please Input"
         :prefix-icon="Search"
       />
-      <el-menu-item index="">个人中心</el-menu-item>
+      <el-menu-item index>个人中心</el-menu-item>
     </el-menu>
   </div>
 </template>
@@ -29,8 +29,12 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import { Search } from '@element-plus/icons-vue'
+import PersonCenter from '@/views/person/Index.vue'
 
 export default defineComponent({
+  components: {
+    PersonCenter
+  },
   setup() {
     return {
       Search
