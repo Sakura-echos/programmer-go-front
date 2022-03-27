@@ -1,6 +1,11 @@
 <template>
   <div class="nav">
-    <el-menu class="el-menu-demo nav-menu" mode="horizontal">
+    <el-menu
+      class="el-menu-demo nav-menu"
+      mode="horizontal"
+      :default-active="this.$router.path"
+      router
+    >
       <el-menu-item index="1">屁股Logo</el-menu-item>
       <el-menu-item index="2">首页</el-menu-item>
       <el-sub-menu index="3">
@@ -21,7 +26,7 @@
         placeholder="Please Input"
         :prefix-icon="Search"
       />
-      <el-menu-item index="4">个人中心</el-menu-item>
+      <el-menu-item index="/person_center">个人中心</el-menu-item>
     </el-menu>
   </div>
 </template>
