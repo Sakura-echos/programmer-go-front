@@ -57,3 +57,8 @@ yarn lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+
+# 提交规范参考
+
+https://juejin.cn/post/7078943088475013150/
