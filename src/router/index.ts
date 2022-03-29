@@ -17,7 +17,18 @@ const routes: RouteRecordRaw[] = [
       },
       {
         path: 'home',
+        name: '首页',
         component: () => import('@/views/index/home/Home.vue')
+      },
+      {
+        path: 'person',
+        name: '个人中心',
+        component: () => import('@/views/index/person/Person.vue')
+      },
+      {
+        path: 'info',
+        name: '消息中心',
+        component: () => import('@/views/index/info/Info.vue')
       }
     ]
   },
@@ -29,11 +40,6 @@ const routes: RouteRecordRaw[] = [
     path: '/:pathMatch(.*)*',
     name: 'not-found',
     component: () => import('@/views/not-found/NotFound.vue')
-  },
-  {
-    path: '/person_center',
-    name: '个人中心',
-    component: () => import('@/views/person/Index.vue')
   }
 ]
 

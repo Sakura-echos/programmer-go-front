@@ -13,7 +13,9 @@ import {
   ElIcon,
   ElCard,
   ElTable,
-  ElTableColumn
+  ElTableColumn,
+  ElAvatar,
+  ElAffix
 } from 'element-plus/lib/components'
 
 const components = [
@@ -29,7 +31,9 @@ const components = [
   ElIcon,
   ElCard,
   ElTable,
-  ElTableColumn
+  ElTableColumn,
+  ElAvatar,
+  ElAffix
 ]
 
 export default function (app: App): void {
