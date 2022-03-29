@@ -1,5 +1,7 @@
 <template>
-  <div class="info"></div>
+  <div class="info">
+    <h2>消息中心</h2>
+  </div>
 </template>
 
 <script lang="ts">

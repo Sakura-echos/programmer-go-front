@@ -1,12 +1,7 @@
 <template>
   <div class="nav">
     <el-affix>
-      <el-menu
-        class="el-menu-demo nav-menu"
-        mode="horizontal"
-        :default-active="this.$router.path"
-        :router="true"
-      >
+      <el-menu class="el-menu-demo nav-menu" mode="horizontal" :router="true">
         <el-menu-item>屁股Logo</el-menu-item>
         <el-menu-item index="/">首页</el-menu-item>
         <div class="nav-search">
@@ -45,7 +40,7 @@
           <el-menu-item index="3-1">系统通知</el-menu-item>
           <el-menu-item index="3-2">评论和回复</el-menu-item>
           <el-menu-item index="3-3">点赞</el-menu-item>
-          <el-sub-menu index="3-4">消息设置</el-sub-menu>
+          <el-menu-item index="3-4">消息设置</el-menu-item>
         </el-sub-menu>
         <el-sub-menu index="/index/person" @click="routeToPerson">
           <template #title>
