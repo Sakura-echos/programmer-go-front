@@ -1,11 +1,12 @@
 <template>
-  <div>
+  <div style="margin-top: 20px">
     <el-row>
-      <el-col :span="4">
-        <el-card :body-style="{ padding: '0px' }">
-          <img
-            src="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png"
-            class="image"
+      <el-col :span="5" :offset="2">
+        <el-card :body-style="{ padding: '60px' }">
+          <el-image
+            style="width: 100px; height: 100px; margin-left: 30px"
+            :src="url"
+            :fit="fit"
           />
           <div style="padding: 14px">
             <span>{{ username }}</span>
@@ -14,7 +15,8 @@
             </div>
           </div>
         </el-card>
-        <div>
+        <div style="margin-top: 20px">
+          <el-divider />
           <el-menu
             active-text-color="#ffd04b"
             background-color="#545c64"
@@ -49,7 +51,7 @@
           </el-menu>
         </div>
       </el-col>
-      <el-col :span="16" style="panding: 10px">
+      <el-col :span="14" :offset="2">
         <div class="title">
           <h1>
             {{ username }}
@@ -57,22 +59,37 @@
             <el-icon v-else><female /></el-icon>
           </h1>
         </div>
-        <div class="detail">
-          <span>真实姓名：{{ realName }}</span>
-          <el-divider direction="vertical" />
-          <span>居住地：{{ location }}</span>
-          <el-divider direction="vertical" />
-          <span>生日：{{ birth }}</span>
-          <br />
-          <span
-            ><el-icon><phone-filled /></el-icon>{{ mobile }}</span
-          >
-          <el-divider direction="vertical" />
-          <span
-            ><el-icon><message /></el-icon>{{ email }}</span
-          >
+        <div class="detail" style="padding: 20px">
+          <el-row>
+            <el-col :span="14">
+              <span>真实姓名：{{ realName }}</span>
+              <el-divider direction="vertical" style="margin-left: 20px" />
+              <span>居住地：{{ location }}</span>
+              <el-divider direction="vertical" style="margin-left: 20px" />
+              <span>生日：{{ birth }}</span>
+              <br />
+              <span
+                ><el-icon><phone-filled /></el-icon>{{ mobile }}</span
+              >
+              <el-divider direction="vertical" />
+              <span
+                ><el-icon><message /></el-icon>{{ email }}</span
+              >
+            </el-col>
+            <el-col :span="6">
+              <el-image
+                style="width: 100px; height: 100px"
+                :src="url"
+                :fit="fit"
+              />
+            </el-col>
+          </el-row>
         </div>
+        <br />
+        <br />
+        <br />
         <h2>个人网站及技能</h2>
+        <br />
         <h3>个人博客</h3>
         <div class="blog">
           <span>
@@ -80,6 +97,7 @@
             <a href="{{ blog }}" target="_blank">{{ blog }}</a>
           </span>
         </div>
+        <br />
         <h3>技能标签</h3>
         <div class="tags">
           <el-tag
@@ -87,6 +105,7 @@
             :key="tag.id"
             :type="tag.type"
             :closable="true"
+            style="margin-right: 10px"
           >
             {{ tag.name }}
           </el-tag>
@@ -97,9 +116,31 @@
 </template>
 
 <script lang="ts">
+import {
+  Document,
+  Star,
+  Collection,
+  Notification,
+  Male,
+  Female,
+  PhoneFilled,
+  Message,
+  Link
+} from '@element-plus/icons-vue'
 import { defineComponent } from 'vue'
 
 export default defineComponent({
+  components: {
+    Document,
+    Star,
+    Collection,
+    Notification,
+    Male,
+    Female,
+    PhoneFilled,
+    Message,
+    Link
+  },
   setup() {
     return {}
   },
@@ -114,7 +155,25 @@ export default defineComponent({
       birth: '1995年3月',
       mobile: '1999999999',
       email: 'pzqu@gg.com',
-      blog: 'https://coding3min.com'
+      blog: 'https://coding3min.com',
+      tags: [
+        {
+          id: 1,
+          name: 'Vue',
+          type: 'success'
+        },
+        {
+          id: 2,
+          name: 'Vuex',
+          type: 'success'
+        },
+        {
+          id: 3,
+          name: 'Vue-router',
+          type: 'success'
+        }
+      ],
+      url: 'https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg'
     }
   },
   methods: {}
