@@ -1,7 +1,12 @@
 <template>
   <div class="nav">
     <el-affix>
-      <el-menu class="el-menu-demo nav-menu" mode="horizontal" :router="true">
+      <el-menu
+        active-text-color="#00b1ff"
+        class="el-menu-demo nav-menu"
+        mode="horizontal"
+        :router="true"
+      >
         <el-menu-item>屁股Logo</el-menu-item>
         <el-menu-item index="/">首页</el-menu-item>
         <div class="nav-search">
@@ -91,9 +96,6 @@ export default defineComponent({
 
   * {
     margin: auto 0;
-  }
-  i {
-    display: none;
   }
   .nav-search {
     width: 70%;
