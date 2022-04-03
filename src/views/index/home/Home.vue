@@ -8,6 +8,7 @@
         <home-right></home-right>
       </el-col>
     </el-row>
+    <home-pagination></home-pagination>
   </div>
 </template>
 
@@ -15,11 +16,13 @@
 import { defineComponent } from 'vue'
 import HomeLeft from './components/HomeLeft.vue'
 import HomeRight from './components/HomeRight.vue'
+import HomePagination from './components/HomePagination.vue'
 
 export default defineComponent({
   components: {
     HomeLeft,
-    HomeRight
+    HomeRight,
+    HomePagination
   },
   setup() {
     return {}

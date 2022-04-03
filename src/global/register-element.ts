@@ -15,7 +15,8 @@ import {
   ElTable,
   ElTableColumn,
   ElAvatar,
-  ElAffix
+  ElAffix,
+  ElPagination
 } from 'element-plus/lib/components'
 
 const components = [
@@ -33,7 +34,8 @@ const components = [
   ElTable,
   ElTableColumn,
   ElAvatar,
-  ElAffix
+  ElAffix,
+  ElPagination
 ]
 
 export default function (app: App): void {

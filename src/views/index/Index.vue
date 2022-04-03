@@ -2,7 +2,6 @@
   <div class="index">
     <my-nav></my-nav>
     <router-view></router-view>
-    <div style="height: 2000px"></div>
     <my-footer></my-footer>
   </div>
 </template>
