@@ -55,7 +55,7 @@
             />
           </template>
           <el-menu-item index="/index/person">个人中心</el-menu-item>
-          <el-menu-item index="3-2">退出登录</el-menu-item>
+          <el-menu-item index="4">退出登录</el-menu-item>
         </el-sub-menu>
       </el-menu>
     </el-affix>
