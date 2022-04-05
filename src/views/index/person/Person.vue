@@ -69,11 +69,11 @@
               <span>生日：{{ birth }}</span>
               <br />
               <span
-                ><el-icon><phone-filled /></el-icon>{{ mobile }}</span
+                ><el-icon style="margin-right: 10px"><phone-filled /></el-icon>{{ mobile }}</span
               >
               <el-divider direction="vertical" />
               <span
-                ><el-icon><message /></el-icon>{{ email }}</span
+                ><el-icon style="margin-right: 10px"><message /></el-icon>{{ email }}</span
               >
             </el-col>
             <el-col :span="6">

@@ -11,10 +11,15 @@ module.exports = {
     //   }
     // }
   },
+  transpileDependencies: [],
   configureWebpack: {
     resolve: {
       alias: {
         views: '@/views'
+      },
+      fallback: {
+        fs: false,
+        crypto: require.resolve("crypto-browserify")
       }
     }
   }
