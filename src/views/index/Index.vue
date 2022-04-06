@@ -1,7 +1,9 @@
 <template>
   <div class="index">
     <my-nav></my-nav>
-    <router-view></router-view>
+    <div class="my-body">
+      <router-view></router-view>
+    </div>
     <my-footer></my-footer>
   </div>
 </template>
@@ -22,4 +24,12 @@ export default defineComponent({
 })
 </script>
 
-<style scoped></style>
+<style scoped lang="less">
+.index {
+  display: flex;
+  flex-direction: column;
+  .my-body {
+    min-height: calc(100vh - 170px);
+  }
+}
+</style>
