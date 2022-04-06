@@ -17,7 +17,8 @@ import {
   ElAvatar,
   ElAffix,
   ElDivider,
-  ElImage
+  ElImage,
+  ElPagination
 } from 'element-plus/lib/components'
 
 const components = [
@@ -37,7 +38,8 @@ const components = [
   ElAvatar,
   ElAffix,
   ElDivider,
-  ElImage
+  ElImage,
+  ElPagination
 ]
 
 export default function (app: App): void {
