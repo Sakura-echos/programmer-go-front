@@ -1,3 +1,3 @@
-import MyNav from '@/components/nav/src/Nav.vue'
+import MyNav from '@/components/nav/src/nav.vue'
 
 export default MyNav

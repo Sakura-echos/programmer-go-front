@@ -16,6 +16,8 @@ import {
   ElTableColumn,
   ElAvatar,
   ElAffix,
+  ElDivider,
+  ElImage,
   ElPagination
 } from 'element-plus/lib/components'
 
@@ -35,6 +37,8 @@ const components = [
   ElTableColumn,
   ElAvatar,
   ElAffix,
+  ElDivider,
+  ElImage,
   ElPagination
 ]
 
