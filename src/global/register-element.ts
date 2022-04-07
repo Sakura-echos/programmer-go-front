@@ -18,7 +18,14 @@ import {
   ElAffix,
   ElDivider,
   ElImage,
-  ElPagination
+  ElPagination,
+  ElRadio,
+  ElRadioGroup,
+  ElRadioButton,
+  ElForm,
+  ElFormItem,
+  ElDatePicker,
+  ElSelect
 } from 'element-plus/lib/components'
 
 const components = [
@@ -39,7 +46,14 @@ const components = [
   ElAffix,
   ElDivider,
   ElImage,
-  ElPagination
+  ElPagination,
+  ElRadio,
+  ElForm,
+  ElFormItem,
+  ElRadioGroup,
+  ElRadioButton,
+  ElDatePicker,
+  ElSelect
 ]
 
 export default function (app: App): void {
