@@ -51,39 +51,146 @@
           </el-menu>
         </div>
       </el-col>
-      <el-col :span="14" :offset="2">
+      <el-col :span="14" :offset="2" v-if="edit">
+        <el-card :body-style="{ padding: '50px' }">
+          <template #header>
+            <div class="card-header">
+              <span>编辑个人资料</span>
+            </div>
+          </template>
+          <el-form ref="form" :model="form" label-width="100px" :rules="rules">
+            <el-rol>
+              <el-col :span="10">
+                <el-form-item label="昵称" prop="username">
+                  <el-input
+                    v-model="form.username"
+                    placeholder="请输入用户名"
+                  />
+                </el-form-item>
+                <el-form-item label="性别" prop="sex">
+                  <el-radio-group v-model="form.sex">
+                    <el-radio-button label="1">男</el-radio-button>
+                    <el-radio-button label="0">女</el-radio-button>
+                  </el-radio-group>
+                </el-form-item>
+                <el-form-item label="出生日期" prop="birthday">
+                  <el-date-picker
+                    v-model="form.birthday"
+                    type="date"
+                    placeholder="选择日期"
+                    value-format="yyyy-MM-dd"
+                    format="yyyy-MM-dd"
+                  />
+                </el-form-item>
+
+                <el-form-item label="邮箱" prop="email">
+                  <el-input v-model="form.email" placeholder="请输入邮箱" />
+                </el-form-item>
+                <el-form-item label="个人简介" prop="introduction">
+                  <el-input
+                    :rows="2"
+                    type="textarea"
+                    style="width: 100%"
+                    v-model="form.introduction"
+                    placeholder="请输入个人简介"
+                  />
+                </el-form-item>
+                <el-form-item label="擅长技能" props="skills">
+                  <el-select
+                    v-model="form.skills"
+                    multiple
+                    filterable
+                    allow-create
+                  >
+                    <el-option
+                      v-for="item in skills"
+                      :key="item.value"
+                      :label="item.label"
+                      :value="item.value"
+                    ></el-option>
+                  </el-select>
+                </el-form-item>
+              </el-col>
+              <el-col :span="10">
+                <el-form-item label="真实姓名" prop="realName">
+                  <el-input
+                    v-model="form.realName"
+                    placeholder="请输入用户名"
+                  />
+                </el-form-item>
+                <el-form-item label="居住地" prop="location">
+                  <el-input
+                    v-model="form.location"
+                    placeholder="请输入居住地"
+                  />
+                </el-form-item>
+
+                <el-form-item label="手机号" prop="mobile">
+                  <el-input v-model="form.mobile" placeholder="请输入手机号" />
+                </el-form-item>
+                <el-form-item label="个人博客" prop="url">
+                  <el-input v-model="form.url" placeholder="请输入博客地址" />
+                </el-form-item>
+                <br />
+                <br />
+                <el-form-item>
+                  <el-button type="primary" @click="submit">提交</el-button>
+                  <el-button @click="cancel">取消</el-button>
+                </el-form-item>
+              </el-col>
+            </el-rol>
+          </el-form>
+        </el-card>
+      </el-col>
+      <el-col :span="14" :offset="2" v-else>
         <div class="title">
           <h1>
             {{ username }}
-            <el-icon v-if="sex === 0"><male /></el-icon>
-            <el-icon v-else><female /></el-icon>
+            <el-icon v-if="sex === 0" color="blue"><male /></el-icon>
+            <el-icon v-else color="red"><female /></el-icon>
           </h1>
         </div>
         <div class="detail" style="padding: 20px">
           <el-row>
-            <el-col :span="14">
-              <span>真实姓名：{{ realName }}</span>
-              <el-divider direction="vertical" style="margin-left: 20px" />
-              <span>居住地：{{ location }}</span>
-              <el-divider direction="vertical" style="margin-left: 20px" />
-              <span>生日：{{ birth }}</span>
+            <el-col :span="18">
+              <el-row>
+                <el-col :span="8">
+                  <span>真实姓名：{{ realName }}</span>
+                  <el-divider direction="vertical" style="margin-left: 20px" />
+                </el-col>
+                <el-col :span="8">
+                  <span>居住地：{{ location }}</span>
+                  <el-divider direction="vertical" style="margin-left: 20px" />
+                </el-col>
+                <el-col :span="8">
+                  <span>生日：{{ birthday }}</span>
+                </el-col>
+              </el-row>
               <br />
-              <span
-                ><el-icon style="margin-right: 10px"><phone-filled /></el-icon
-                >{{ mobile }}</span
-              >
-              <el-divider direction="vertical" />
-              <span
-                ><el-icon style="margin-right: 10px"><message /></el-icon
-                >{{ email }}</span
-              >
+              <el-row>
+                <el-col :span="9">
+                  <span
+                    ><el-icon style="margin-right: 10px"
+                      ><phone-filled /></el-icon
+                    >{{ mobile }}</span
+                  ><el-divider direction="vertical" />
+                </el-col>
+                <el-col :span="9">
+                  <span
+                    ><el-icon style="margin-right: 10px"><message /></el-icon
+                    >{{ email }}</span
+                  >
+                </el-col>
+              </el-row>
             </el-col>
-            <el-col :span="6">
+            <el-col :span="4" style="margin-left: 50px">
               <el-image
                 style="width: 100px; height: 100px"
                 :src="url"
                 :fit="fit"
               />
+              <br />
+              <el-button type="text" @click="handleEdit">编辑</el-button>
             </el-col>
           </el-row>
         </div>
@@ -93,7 +200,7 @@
         <h2>个人网站及技能</h2>
         <br />
         <h3>个人博客</h3>
-        <div class="blog">
+        <div class="blog" style="margin-top: 10px">
           <span>
             <el-icon><Link /></el-icon>
             <a href="{{ blog }}" target="_blank">{{ blog }}</a>
@@ -101,7 +208,7 @@
         </div>
         <br />
         <h3>技能标签</h3>
-        <div class="tags">
+        <div class="tags" style="margin-top: 10px">
           <el-tag
             v-for="tag in tags"
             :key="tag.id"
@@ -148,13 +255,28 @@ export default defineComponent({
   },
   data() {
     return {
-      username: '机制的程序猿小熊',
+      edit: false,
+      form: {
+        username: '闷骚的程序猿yerik',
+        realName: '',
+        sex: '1',
+        location: '',
+        birthday: '',
+        mobile: '1999999999',
+        email: 'pzqu@gg.com',
+        introduction: '',
+        url: '',
+        skills: []
+      },
+      rules: {},
+      skills: [],
+      username: '闷骚的程序猿yerik',
       fanTotal: 246,
       focusTotal: 124,
       sex: 0,
       realName: '--',
       location: '中国广东深圳',
-      birth: '1995年3月',
+      birthday: '1995年3月',
       mobile: '1999999999',
       email: 'pzqu@gg.com',
       blog: 'https://coding3min.com',
@@ -178,7 +300,17 @@ export default defineComponent({
       url: 'https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg'
     }
   },
-  methods: {}
+  methods: {
+    handleEdit() {
+      this.edit = true
+    },
+    submit() {
+      this.edit = false
+    },
+    cancel() {
+      this.edit = false
+    }
+  }
 })
 </script>
 
