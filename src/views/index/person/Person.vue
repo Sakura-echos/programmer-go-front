@@ -30,7 +30,7 @@
               <el-icon><document /></el-icon>
               <span>个人资料</span>
             </el-menu-item>
-            <el-sub-menu index="2">
+            <el-sub-menu index="collection">
               <template #title>
                 <el-icon><star /></el-icon>
                 <span>收藏夹</span>
@@ -51,8 +51,11 @@
           </el-menu>
         </div>
       </el-col>
-      <el-col :span="14" :offset="2" v-if="edit">
+      <el-col :span="14" :offset="2" v-if="selectSwitch === 'edit'">
         <edit-person></edit-person>
+      </el-col>
+      <el-col :span="14" :offset="2" v-else-if="selectSwitch === 'collection'">
+        <collection-tab />
       </el-col>
       <el-col :span="14" :offset="2" v-else>
         <div class="title">
@@ -150,12 +153,14 @@ import {
 } from '@element-plus/icons-vue'
 import { defineComponent } from 'vue'
 import EditPerson from './EditPerson.vue'
+import CollectionTab from './Collection.vue'
 
 export default defineComponent({
   components: {
     Document,
     Star,
     Collection,
+    CollectionTab,
     Notification,
     Male,
     Female,
@@ -169,7 +174,7 @@ export default defineComponent({
   },
   data() {
     return {
-      edit: false,
+      selectSwitch: '',
       username: '闷骚的程序猿yerik',
       fanTotal: 246,
       focusTotal: 124,
@@ -201,14 +206,24 @@ export default defineComponent({
     }
   },
   methods: {
-    handleEdit() {
-      this.edit = true
-    },
-    submit() {
-      this.edit = false
-    },
-    cancel() {
-      this.edit = false
+    // handleEdit() {
+    //   this.edit = true
+    // },
+    // submit() {
+    //   this.edit = false
+    // },
+    // cancel() {
+    //   this.edit = false
+    // },
+    // handleSelect(selectSwitch) {
+    //   this.selectSwitch = selectSwitch
+    // },
+    // handleClose() {
+    //   this.edit = false
+    // },
+    handleOpen(key: string, path: string[]) {
+      console.log(key, path)
+      this.selectSwitch = key
     }
   }
 })

@@ -25,7 +25,9 @@ import {
   ElForm,
   ElFormItem,
   ElDatePicker,
-  ElSelect
+  ElSelect,
+  ElTabs,
+  ElTabPane
 } from 'element-plus/lib/components'
 
 const components = [
@@ -53,7 +55,9 @@ const components = [
   ElRadioGroup,
   ElRadioButton,
   ElDatePicker,
-  ElSelect
+  ElSelect,
+  ElTabs,
+  ElTabPane
 ]
 
 export default function (app: App): void {
