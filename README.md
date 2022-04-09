@@ -62,3 +62,38 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 # 提交规范参考
 
 https://juejin.cn/post/7078943088475013150/
+
+# 启动失败
+如果在某些情况下启动失败，如出现
+```js
+internal/modules/cjs/loader.js:883
+  throw err;
+  ^
+```
+或者
+```js
+ INFO  Starting development server...
+ ERROR  ValidationError: Progress Plugin Invalid Options
+        
+        options should NOT have additional properties
+        options should NOT have additional properties
+        options should NOT have additional properties
+        options should pass "instanceof" keyword validation
+        options should match exactly one schema in oneOf
+```
+或者
+```js
+ ERROR  TypeError: transpileDependencies.map is not a function
+TypeError: transpileDependencies.map is not a function
+    at genTranspileDepRegex (/media/yerikyu/storage2/programmer-go-front/node_modules/@vue/cli-plugin-babel/index.js:6:38)
+    at module.exports (/media/yerikyu/storage2/programmer-go-front/node_modules/@vue/cli-plugin-babel/index.js:22:29)
+    at /media/yerikyu/storage2/programmer-go-front/node_modules/@vue/cli-service/lib/Service.js:82:9
+    at Array.forEach (<anonymous>)
+    at loadedCallback (/media/yerikyu/storage2/programmer-go-front/node_modules/@vue/cli-service/lib/Service.js:80:20)
+    at Service.init (/media/yerikyu/storage2/programmer-go-front/node_modules/@vue/cli-service/lib/Service.js:97:14)
+    at Service.run (/media/yerikyu/storage2/programmer-go-front/node_modules/@vue/cli-service/lib/Service.js:247:16)
+    at Object.<anonymous> (/media/yerikyu/storage2/programmer-go-front/node_modules/@vue/cli-service/bin/vue-cli-service.js:37:9)
+    at Module._compile (internal/modules/cjs/loader.js:1063:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)
+```
+大概率是由于`node_modules`包不一致导致的，优先使用`yarn serve`命令解决问题
