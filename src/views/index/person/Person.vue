@@ -52,95 +52,7 @@
         </div>
       </el-col>
       <el-col :span="14" :offset="2" v-if="edit">
-        <el-card :body-style="{ padding: '50px' }">
-          <template #header>
-            <div class="card-header">
-              <span>编辑个人资料</span>
-            </div>
-          </template>
-          <el-form ref="form" :model="form" label-width="100px" :rules="rules">
-            <el-rol>
-              <el-col :span="10">
-                <el-form-item label="昵称" prop="username">
-                  <el-input
-                    v-model="form.username"
-                    placeholder="请输入用户名"
-                  />
-                </el-form-item>
-                <el-form-item label="性别" prop="sex">
-                  <el-radio-group v-model="form.sex">
-                    <el-radio-button label="1">男</el-radio-button>
-                    <el-radio-button label="0">女</el-radio-button>
-                  </el-radio-group>
-                </el-form-item>
-                <el-form-item label="出生日期" prop="birthday">
-                  <el-date-picker
-                    v-model="form.birthday"
-                    type="date"
-                    placeholder="选择日期"
-                    value-format="yyyy-MM-dd"
-                    format="yyyy-MM-dd"
-                  />
-                </el-form-item>
-
-                <el-form-item label="邮箱" prop="email">
-                  <el-input v-model="form.email" placeholder="请输入邮箱" />
-                </el-form-item>
-                <el-form-item label="个人简介" prop="introduction">
-                  <el-input
-                    :rows="2"
-                    type="textarea"
-                    style="width: 100%"
-                    v-model="form.introduction"
-                    placeholder="请输入个人简介"
-                  />
-                </el-form-item>
-                <el-form-item label="擅长技能" props="skills">
-                  <el-select
-                    v-model="form.skills"
-                    multiple
-                    filterable
-                    allow-create
-                  >
-                    <el-option
-                      v-for="item in skills"
-                      :key="item.value"
-                      :label="item.label"
-                      :value="item.value"
-                    ></el-option>
-                  </el-select>
-                </el-form-item>
-              </el-col>
-              <el-col :span="10">
-                <el-form-item label="真实姓名" prop="realName">
-                  <el-input
-                    v-model="form.realName"
-                    placeholder="请输入用户名"
-                  />
-                </el-form-item>
-                <el-form-item label="居住地" prop="location">
-                  <el-input
-                    v-model="form.location"
-                    placeholder="请输入居住地"
-                  />
-                </el-form-item>
-
-                <el-form-item label="手机号" prop="mobile">
-                  <el-input v-model="form.mobile" placeholder="请输入手机号" />
-                </el-form-item>
-                <el-form-item label="个人博客" prop="url">
-                  <el-input v-model="form.url" placeholder="请输入博客地址" />
-                </el-form-item>
-                <br />
-                <br />
-                <el-form-item>
-                  <el-button type="primary" @click="submit">提交</el-button>
-                  <el-button @click="cancel">取消</el-button>
-                </el-form-item>
-              </el-col>
-            </el-rol>
-          </el-form>
-        </el-card>
+        <edit-person></edit-person>
       </el-col>
       <el-col :span="14" :offset="2" v-else>
         <div class="title">
@@ -237,6 +149,7 @@ import {
   Link
 } from '@element-plus/icons-vue'
 import { defineComponent } from 'vue'
+import EditPerson from './EditPerson.vue'
 
 export default defineComponent({
   components: {
@@ -248,7 +161,8 @@ export default defineComponent({
     Female,
     PhoneFilled,
     Message,
-    Link
+    Link,
+    EditPerson
   },
   setup() {
     return {}
@@ -256,20 +170,6 @@ export default defineComponent({
   data() {
     return {
       edit: false,
-      form: {
-        username: '闷骚的程序猿yerik',
-        realName: '',
-        sex: '1',
-        location: '',
-        birthday: '',
-        mobile: '1999999999',
-        email: 'pzqu@gg.com',
-        introduction: '',
-        url: '',
-        skills: []
-      },
-      rules: {},
-      skills: [],
       username: '闷骚的程序猿yerik',
       fanTotal: 246,
       focusTotal: 124,
